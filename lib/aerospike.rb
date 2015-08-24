@@ -90,6 +90,9 @@ module Aerospike
   # Show Tend info in logger
   @@tend_info = true
 
+  # 1 sec default nodes connection timeout
+  @@nodes_timeout = 1
+
   #
   # Return the value of tend_info
   #
@@ -98,6 +101,16 @@ module Aerospike
   #
   def self.tend_info
     @@tend_info
+  end
+
+  #
+  # Return the value of @@nodes_timeout
+  #
+  # == Returns:
+  # Integer representing the node connection timeout in seconds
+  #
+  def self.nodes_timeout
+    @@nodes_timeout
   end
 
   #
@@ -112,8 +125,20 @@ module Aerospike
   end
 
   #
+  # Set the value for nodes_timeout
+  #
+  # == Parameters:
+  # timeout::
+  #   Integer value of the timeout in seconds
+  #
+  def self.nodes_timeout=(timeout)
+    @@nodes_timeout = timeout
+  end
+
+  #
   # Initialize the config of Aerospike Ruby gem. Available config:
   #   - tend_info
+  #   - nodes_timeout
   #
   def self.setup
     yield self

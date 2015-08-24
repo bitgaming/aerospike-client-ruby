@@ -265,9 +265,11 @@ module Aerospike
         end
       end
 
+      timeout = Aerospike.nodes_timeout
+
       # wait for the thread to finish or timeout
       begin
-        Timeout.timeout(1) do
+        Timeout.timeout(timeout) do
           thr.join
         end
       rescue Timeout::Error
