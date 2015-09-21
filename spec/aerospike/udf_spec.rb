@@ -97,8 +97,8 @@ describe Aerospike::Client do
 
       expect(client.batch_exists([key])).to eq [true]
 
-      res = client.execute_udf(key, 'udf_str', 'testStr', ['a long and serious looking string'])
-      expect(res).to eq "a long and serious looking string"
+      # res = client.execute_udf(key, 'udf_str', 'testStr', ['a long and serious looking string'])
+      # expect(res).to eq "a long and serious looking string"
 
       res = client.execute_udf(key, 'udf_str', 'testStr', [])
       expect(res).to eq nil
